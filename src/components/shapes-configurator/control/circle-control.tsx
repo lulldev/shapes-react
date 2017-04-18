@@ -4,24 +4,19 @@
 import * as React from 'react';
 import * as RB from 'react-bootstrap';
 
-export interface ICircleControlProps {
-}
-
-export interface ICircleControlState {
-    display? : boolean
-}
-
-export class CircleControl extends React.Component<ICircleControlProps, ICircleControlState> {
+export class CircleControl extends React.Component<any, any> {
 
     constructor (props) {
         super(props);
-        this.state = {display: false};
     }
+
+    private isActivateFormControl() : boolean {
+        return (!!this.props.shapeType) && (this.props.shapeType === 'circle');
+    }
+
     render () {
 
-        const isComponentDisplay = this.state.display;
-
-        if (!isComponentDisplay)
+        if (!this.isActivateFormControl())
         {
             return null;
         }

@@ -51,9 +51,9 @@ export class ShapesApp extends React.Component<any, any> {
                         <label>Draw configurator:</label>
                         <TypesControl handleChangeShapeType={this.handleChangeShapeType}/>
                         <ColorsControl shapeType={this.props.shapeType} handleChangeColors={this.handleChangeColors}/>
-                        <CircleControl/>
-                        <RectangleControl/>
-                        <TriangleControl/>
+                        <CircleControl shapeType={this.props.shapeType}/>
+                        <RectangleControl shapeType={this.props.shapeType}/>
+                        <TriangleControl shapeType={this.props.shapeType}/>
                         <ActionBar/>
                     </form>
                 </Col>

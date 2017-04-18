@@ -4,25 +4,20 @@
 import * as React from 'react';
 import * as RB from 'react-bootstrap';
 
-export interface ITriangleControlProps {
-}
 
-export interface ITriangleControlState {
-    display? : boolean
-}
-
-export class TriangleControl extends React.Component<ITriangleControlProps, ITriangleControlState> {
+export class TriangleControl extends React.Component<any, any> {
 
     constructor (props) {
         super(props);
-        this.state = {display: false};
+    }
+
+    private isActivateFormControl() : boolean {
+        return (!!this.props.shapeType) && (this.props.shapeType === 'triangle');
     }
 
     render () {
 
-        const isComponentDisplay = this.state.display;
-
-        if (!isComponentDisplay)
+        if (!this.isActivateFormControl())
         {
             return null;
         }

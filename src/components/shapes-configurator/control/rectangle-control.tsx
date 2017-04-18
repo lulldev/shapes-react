@@ -4,25 +4,19 @@
 import * as React from 'react';
 import * as RB from 'react-bootstrap';
 
-export interface IRectangleControlProps {
-}
-
-export interface IRectangleControlState {
-    display? : boolean
-}
-
-export class RectangleControl extends React.Component<IRectangleControlProps, IRectangleControlState> {
+export class RectangleControl extends React.Component<any, any> {
 
     constructor (props) {
         super(props);
     }
+
+    private isActivateFormControl() : boolean {
+        return (!!this.props.shapeType) && (this.props.shapeType === 'rectangle');
+    }
     
     render () {
 
-        console.log(this);
-        // const isComponentDisplay = this.state.display;
-
-        if (false)
+        if (!this.isActivateFormControl())
         {
             return null;
         }

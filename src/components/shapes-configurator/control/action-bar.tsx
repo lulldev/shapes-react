@@ -4,24 +4,14 @@
 import * as React from 'react';
 import * as RB from 'react-bootstrap';
 
-export interface IActionBarProps {
-}
-
-export interface IActionBarState {
-    display?: boolean;
-}
-
-export class ActionBar extends React.Component<IActionBarProps, IActionBarState> {
+export class ActionBar extends React.Component<any, any> {
     constructor (props) {
         super(props);
-        this.state = {display: false};
     }
 
     render () {
 
-        const isComponentDisplay = this.state.display;
-
-        if (!isComponentDisplay)
+        if (true)
         {
             return null;
         }
