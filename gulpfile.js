@@ -48,7 +48,7 @@ gulp.task('tslint', function() {
     return gulp.src(config.src + '/**/*.tsx')
         .pipe(GLP.tslint())
         .pipe(GLP.tslint.report('recommended', {
-            emitError: false
+            emitError: true
         }));
 });
 

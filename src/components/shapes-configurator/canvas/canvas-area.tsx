@@ -2,18 +2,9 @@
 
 import * as React from 'react';
 
-export interface ICanvasAreaProps {
-}
-
-export interface ICanvasAreaState {
-}
-
-export class CanvasArea extends React.Component<ICanvasAreaProps, ICanvasAreaState> {
+export class CanvasArea extends React.Component<any, any> {
     constructor () {
         super();
-    }
-
-    setState() {
     }
 
     render () {

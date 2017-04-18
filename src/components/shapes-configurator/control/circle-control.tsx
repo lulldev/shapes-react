@@ -25,15 +25,15 @@ export class CircleControl extends React.Component<any, any> {
             <div>
                 <RB.FormGroup>
                     <label>Radius:</label>
-                    <RB.FormControl type="number" placeholder="10"></RB.FormControl>
+                    <RB.FormControl id="radius" type="number" placeholder="10" onChange={this.props.handleShapeParams}></RB.FormControl>
                 </RB.FormGroup>
                 <RB.FormGroup>
                     <label>X-coord</label>
-                    <RB.FormControl type="number" placeholder="50"></RB.FormControl>
+                    <RB.FormControl id="x-coord" type="number" placeholder="50" onChange={this.props.handleShapeParams}></RB.FormControl>
                 </RB.FormGroup>
                 <RB.FormGroup>
                     <label>Y-coord</label>
-                    <RB.FormControl type="number" placeholder="20"></RB.FormControl>
+                    <RB.FormControl id="y-coord" type="number" placeholder="20" onChange={this.props.handleShapeParams}></RB.FormControl>
                 </RB.FormGroup>
             </div>
         );

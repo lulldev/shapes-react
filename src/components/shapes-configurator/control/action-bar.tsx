@@ -5,14 +5,19 @@ import * as React from 'react';
 import * as RB from 'react-bootstrap';
 
 export class ActionBar extends React.Component<any, any> {
+
     constructor (props) {
         super(props);
     }
 
+    private isActivateFormControl () : boolean {
+        return (this.props.shapeType !== '') &&
+            (!!this.props.shapeParams);
+    }
+
     render () {
 
-        if (true)
-        {
+        if (!this.isActivateFormControl()) {
             return null;
         }
         

@@ -4,7 +4,6 @@
 import * as React from 'react';
 import * as RB from 'react-bootstrap';
 
-
 export class TriangleControl extends React.Component<any, any> {
 
     constructor (props) {
@@ -17,8 +16,7 @@ export class TriangleControl extends React.Component<any, any> {
 
     render () {
 
-        if (!this.isActivateFormControl())
-        {
+        if (!this.isActivateFormControl()) {
             return null;
         }
 
@@ -26,27 +24,27 @@ export class TriangleControl extends React.Component<any, any> {
             <div>
                 <RB.FormGroup>
                     <label>X1-coord</label>
-                    <RB.FormControl type="number" placeholder="50"></RB.FormControl>
+                    <RB.FormControl id="x1-coord" onChange={this.props.handleShapeParams} type="number" placeholder="50"></RB.FormControl>
                 </RB.FormGroup>
                 <RB.FormGroup>
                     <label>Y1-coord</label>
-                    <RB.FormControl type="number" placeholder="20"></RB.FormControl>
+                    <RB.FormControl id="y1-coord" onChange={this.props.handleShapeParams} type="number" placeholder="20"></RB.FormControl>
                 </RB.FormGroup>
                 <RB.FormGroup>
                     <label>X2-coord</label>
-                    <RB.FormControl type="number" placeholder="10"></RB.FormControl>
+                    <RB.FormControl id="x2-coord" onChange={this.props.handleShapeParams} type="number" placeholder="10"></RB.FormControl>
                 </RB.FormGroup>
                 <RB.FormGroup>
                     <label>Y2-coord</label>
-                    <RB.FormControl type="number" placeholder="20"></RB.FormControl>
+                    <RB.FormControl id="y2-coord" onChange={this.props.handleShapeParams} type="number" placeholder="20"></RB.FormControl>
                 </RB.FormGroup>
                 <RB.FormGroup>
                     <label>X3-coord</label>
-                    <RB.FormControl type="number" placeholder="10"></RB.FormControl>
+                    <RB.FormControl id="x3-coord" onChange={this.props.handleShapeParams} type="number" placeholder="10"></RB.FormControl>
                 </RB.FormGroup>
                 <RB.FormGroup>
                     <label>Y3-coord</label>
-                    <RB.FormControl type="number" placeholder="20"></RB.FormControl>
+                    <RB.FormControl id="y3-coord" onChange={this.props.handleShapeParams} type="number" placeholder="20"></RB.FormControl>
                 </RB.FormGroup>
             </div>
         );

@@ -16,10 +16,10 @@ export class ShapesApp extends React.Component<any, any> {
 
     private shapeType: string;
 
-    constructor(props: any){
+    constructor(props: any) {
         super(props);
         this.handleChangeShapeType = this.handleChangeShapeType.bind(this);
-        this.handleChangeColors = this.handleChangeColors.bind(this);
+        this.handleFormParams = this.handleFormParams.bind(this);
     }
 
     public handleChangeShapeType(event:any):void {
@@ -30,13 +30,13 @@ export class ShapesApp extends React.Component<any, any> {
         this.props.shapeType = event.target.value;
     }
 
-    public handleChangeColors(event:any):void {
+    public handleFormParams(event:any):void {
         event.preventDefault();
         const state = {};
         state[event.target.id] = event.target.value;
         this.setState(state);
     }
-
+    
     render () {
         return (
             <Row>
@@ -50,16 +50,14 @@ export class ShapesApp extends React.Component<any, any> {
                     <form>
                         <label>Draw configurator:</label>
                         <TypesControl handleChangeShapeType={this.handleChangeShapeType}/>
-                        <ColorsControl shapeType={this.props.shapeType} handleChangeColors={this.handleChangeColors}/>
-                        <CircleControl shapeType={this.props.shapeType}/>
-                        <RectangleControl shapeType={this.props.shapeType}/>
-                        <TriangleControl shapeType={this.props.shapeType}/>
-                        <ActionBar/>
+                        <ColorsControl shapeType={this.props.shapeType} handleChangeColors={this.handleFormParams}/>
+                        <CircleControl shapeType={this.props.shapeType} handleShapeParams={this.handleFormParams}/>
+                        <RectangleControl shapeType={this.props.shapeType} handleShapeParams={this.handleFormParams}/>
+                        <TriangleControl shapeType={this.props.shapeType} handleShapeParams={this.handleFormParams}/>
+                        <ActionBar shapeParams={this.state}/>
                     </form>
                 </Col>
             </Row>
         );
     }
 }
-
-
