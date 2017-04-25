@@ -4,7 +4,6 @@ var del = require('del');
 var webpack = require('webpack-stream');
 var config = require('./gulp.config.js')();
 var hash_src = require("gulp-hash-src");
-var through2 = require('through2');
 var exec = require('child_process').exec;
 var tslint = require("gulp-tslint");
 var gulpsync = require('gulp-sync')(gulp);
@@ -33,7 +32,17 @@ gulp.task('inject', function (cb) {
             {read: false}
         ),
         {name: 'inject', relative: true})).pipe(gulp.dest(config.dest))
-                // hashing.pipe(hash_src({build_dir: config.dest, src_path: config.src})).pipe(gulp.dest(config.dest));
+                .pipe(hash_src({build_dir: config.dest, src_path: config.src}))
+                .pipe(gulp.dest(config.dest));
+});
+
+gulp.task("cspell", function () {
+    exec('cspell ' + config.src + '/**/*.{html,scss,ts,tsx}', function (err, stdout) {
+        if (!!stdout) {
+            console.log("[cspell]: " + stdout);
+            process.exit();
+        }
+    });
 });
 
 gulp.task("tslint", function () {
@@ -89,10 +98,11 @@ gulp.task('release', function (cb) {
 
 gulp.task('watch', function () {
     if (fs.existsSync(config.dest + '/index.html')) {
-        gulp.watch(config.src + '/**/*.tsx', ['tslint', 'scripts']);
-        gulp.watch(config.scripts + '/*.js').on('change', reload);
+        gulp.watch(config.src + '/**/*.{ts,tsx}', ['cspell', 'tslint', 'scripts']).on('change', reload);
         gulp.watch(config.src + '/**/*.scss', ['sass']).on('change', reload);
         gulp.watch(config.src + '/**/*.html', ['inject']).on('change', reload);
+        gulp.watch(config.dest + '/**/*.*').on('change', reload);
+
     }
 });
 
@@ -107,7 +117,7 @@ gulp.task('server-connect', function () {
     }
 });
 
-gulp.task('production', function () {
+gulp.task('production', ['build'], function () {
     if (fs.existsSync(config.dest + '/index.html')) {
         GLP.browserSync({
             ui: false,
@@ -122,28 +132,6 @@ gulp.task('production', function () {
     }
 });
 
-/*
-gulp.task('default', function () {
-    GLP.runSequence(
-        ['tslint', 'scripts', 'sass'],
-        'copy',
-        'inject',
-        'watch',
-        'server-connect'
-    )
-});
-*/
-gulp.task('default', gulpsync.sync(['tslint', 'scripts', 'sass','copy',
-    'inject',
-    'watch',
-    'server-connect'])
-);
-
-gulp.task('build', function () {
-    GLP.runSequence(
-        ['tslint', 'scripts', 'sass'],
-        'copy',
-        'inject',
-        'release'
-    )
-});
+gulp.task('build', gulpsync.sync(['cspell', 'tslint', 'scripts', 'sass', 'copy', 'inject', 'release']));
+gulp.task('develop', gulpsync.sync(['build', 'watch', 'server-connect']));
+gulp.task('default', ['develop']);

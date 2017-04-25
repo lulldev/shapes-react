@@ -24,13 +24,13 @@ export class CircleControl extends React.Component<any, any> {
                                     onChange={this.props.handleShapeParams}></_RB.FormControl>
                 </_RB.FormGroup>
                 <_RB.FormGroup>
-                    <label>X-coord</label>
-                    <_RB.FormControl id="x-coord" type="number" placeholder="50"
+                    <label>X-coordinate</label>
+                    <_RB.FormControl id="x-coordinate" type="number" placeholder="50"
                                     onChange={this.props.handleShapeParams}></_RB.FormControl>
                 </_RB.FormGroup>
                 <_RB.FormGroup>
-                    <label>Y-coord</label>
-                    <_RB.FormControl id="y-coord" type="number" placeholder="20"
+                    <label>Y-coordinate</label>
+                    <_RB.FormControl id="y-coordinate" type="number" placeholder="20"
                                     onChange={this.props.handleShapeParams}></_RB.FormControl>
                 </_RB.FormGroup>
             </div>

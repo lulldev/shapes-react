@@ -2,7 +2,7 @@
 
 import * as ReactDOM from "react-dom";
 
-import {ShapesApp} from "./components/shapes-configurator/application";
+import {ShapesApp} from "./components/shapes-configuration/application";
 
 ReactDOM.render(
     <ShapesApp />,

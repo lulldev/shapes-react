@@ -13,7 +13,7 @@ export class CanvasArea extends React.Component<any, any> {
                 <label>Canvas output:</label>
                 <canvas id="canvas-area"></canvas>
                 <p>
-                    Shape area: <span>0</span>&nbsp;
+                    Shape area: <span>0</span>,
                     Shape perimeter: <span>0</span>
                 </p>
             </div>

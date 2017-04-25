@@ -19,23 +19,23 @@ export class RectangleControl extends React.Component<any, any> {
         return (
             <div>
                 <_RB.FormGroup>
-                    <label>X1-coord</label>
-                    <_RB.FormControl id="x1-coord" onChange={this.props.handleShapeParams}
+                    <label>X1-coordinate</label>
+                    <_RB.FormControl id="x1-coordinate" onChange={this.props.handleShapeParams}
                                     type="number" placeholder="50"></_RB.FormControl>
                 </_RB.FormGroup>
                 <_RB.FormGroup>
-                    <label>Y1-coord</label>
-                    <_RB.FormControl id="y1-coord" onChange={this.props.handleShapeParams}
+                    <label>Y1-coordinate</label>
+                    <_RB.FormControl id="y1-coordinate" onChange={this.props.handleShapeParams}
                                     type="number" placeholder="20"></_RB.FormControl>
                 </_RB.FormGroup>
                 <_RB.FormGroup>
-                    <label>X2-coord</label>
-                    <_RB.FormControl id="x2-coord" onChange={this.props.handleShapeParams}
+                    <label>X2-coordinate</label>
+                    <_RB.FormControl id="x2-coordinate" onChange={this.props.handleShapeParams}
                                     type="number" placeholder="10"></_RB.FormControl>
                 </_RB.FormGroup>
                 <_RB.FormGroup>
-                    <label>Y2-coord</label>
-                    <_RB.FormControl id="y2-coord" onChange={this.props.handleShapeParams}
+                    <label>Y2-coordinate</label>
+                    <_RB.FormControl id="y2-coordinate" onChange={this.props.handleShapeParams}
                                     type="number" placeholder="20"></_RB.FormControl>
                 </_RB.FormGroup>
             </div>

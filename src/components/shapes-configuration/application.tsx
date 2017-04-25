@@ -41,14 +41,14 @@ export class ShapesApp extends React.Component<any, any> {
         return (
             <Row>
                 <Col lg={12}>
-                    <h3>LW4 - Shape drawing with React+Typescript! by Kalagin Ivan (PS-22)</h3>
+                    <h3>LW4 - Shape drawing with React+Typescript!</h3>
                 </Col>
                 <Col lg={8}>
                     <CanvasArea/>
                 </Col>
                 <Col lg={4}>
                     <form>
-                        <label>Draw configurator:</label>
+                        <label>Draw configuration:</label>
                         <TypesControl handleChangeShapeType={this.handleChangeShapeType}/>
                         <ColorsControl shapeType={this.props.shapeType} handleChangeColors={this.handleFormParams}/>
                         <CircleControl shapeType={this.props.shapeType} handleShapeParams={this.handleFormParams}/>
