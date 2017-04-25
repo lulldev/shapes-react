@@ -15,7 +15,6 @@ export class TriangleControl extends React.Component<any, any> {
         if (!this.isActivateFormControl()) {
             return null;
         }
-        
         return (
             <div>
                 <_RB.FormGroup>

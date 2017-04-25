@@ -117,7 +117,7 @@ gulp.task('server-connect', function () {
     }
 });
 
-gulp.task('production', ['build'], function () {
+gulp.task('production', ['build', 'release'], function () {
     if (fs.existsSync(config.dest + '/index.html')) {
         GLP.browserSync({
             ui: false,
@@ -132,6 +132,6 @@ gulp.task('production', ['build'], function () {
     }
 });
 
-gulp.task('build', gulpsync.sync(['cspell', 'tslint', 'scripts', 'sass', 'copy', 'inject', 'release']));
+gulp.task('build', gulpsync.sync(['cspell', 'tslint', 'scripts', 'sass', 'copy', 'inject']));
 gulp.task('develop', gulpsync.sync(['build', 'watch', 'server-connect']));
 gulp.task('default', ['develop']);
