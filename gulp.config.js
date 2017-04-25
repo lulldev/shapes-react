@@ -21,7 +21,7 @@ module.exports = function() {
         scripts: 'build/scripts',
         style: 'build/styles',
         lib: 'build/lib',
-        scriptSource: 'src/**/*.tsx',
+        scriptSource: 'src/**/*.ts{,x}',
         libSources: libraries,
         injectFiles: injections
     };

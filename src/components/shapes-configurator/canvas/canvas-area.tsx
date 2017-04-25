@@ -1,13 +1,13 @@
 /// <reference path="../../../../typings/index.d.ts" />
 
-import * as React from 'react';
+import * as React from "react";
 
 export class CanvasArea extends React.Component<any, any> {
     constructor () {
         super();
     }
 
-    render () {
+    public render () {
         return (
             <div>
                 <label>Canvas output:</label>

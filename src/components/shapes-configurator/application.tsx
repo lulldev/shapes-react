@@ -1,43 +1,43 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 /// <reference path="../../../typings/index.d.ts" />
 
-import * as React from 'react';
-import {Col, Row} from 'react-bootstrap';
+import * as React from "react";
+import {Col, Row} from "react-bootstrap";
 
-import {CanvasArea} from './canvas/canvas-area';
-import {ColorsControl} from './control/colors-control';
-import {TypesControl} from './control/types-control';
-import {CircleControl} from './control/circle-control';
-import {RectangleControl} from './control/rectangle-control';
-import {TriangleControl} from './control/triangle-control';
-import {ActionBar} from './control/action-bar';
+import {CanvasArea} from "./canvas/canvas-area";
+import {ColorsControl} from "./control/colors-control";
+import {TypesControl} from "./control/types-control";
+import {CircleControl} from "./control/circle-control";
+import {RectangleControl} from "./control/rectangle-control";
+import {TriangleControl} from "./control/triangle-control";
+import {ActionBar} from "./control/action-bar";
 
 export class ShapesApp extends React.Component<any, any> {
 
-    private shapeType: string;
+    // private shapeType: string;
 
-    constructor(props: any) {
+    constructor (props: any) {
         super(props);
         this.handleChangeShapeType = this.handleChangeShapeType.bind(this);
         this.handleFormParams = this.handleFormParams.bind(this);
     }
 
-    public handleChangeShapeType(event:any):void {
+    public handleChangeShapeType (event: any): void {
         event.preventDefault();
         this.setState({
-            shapeType : event.target.value
+            shapeType : event.target.value,
         });
         this.props.shapeType = event.target.value;
     }
 
-    public handleFormParams(event:any):void {
+    public handleFormParams (event: any): void {
         event.preventDefault();
         const state = {};
         state[event.target.id] = event.target.value;
         this.setState(state);
     }
-    
-    render () {
+
+    public render () {
         return (
             <Row>
                 <Col lg={12}>
