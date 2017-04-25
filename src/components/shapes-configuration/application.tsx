@@ -12,19 +12,22 @@ import {RectangleControl} from "./control/rectangle-control";
 import {TriangleControl} from "./control/triangle-control";
 import {ActionBar} from "./control/action-bar";
 
-export class ShapesApp extends React.Component<any, any> {
 
-    // private shapeType: string;
+export class ShapesApp extends React.Component<any, any> {
 
     constructor (props: any) {
         super(props);
         this.handleChangeShapeType = this.handleChangeShapeType.bind(this);
         this.handleFormParams = this.handleFormParams.bind(this);
+        this.drawShape = this.drawShape.bind(this);
     }
 
     public handleChangeShapeType (event: any): void {
         event.preventDefault();
         this.setState({
+            actionDraw: false,
+            shapeBgColor: "#ffffff",
+            shapeBorderColor: "#000000",
             shapeType : event.target.value,
         });
         this.props.shapeType = event.target.value;
@@ -37,6 +40,13 @@ export class ShapesApp extends React.Component<any, any> {
         this.setState(state);
     }
 
+    public drawShape (event: any): void {
+        event.preventDefault();
+        this.setState({
+            actionDraw: true,
+        });
+    }
+
     public render () {
         return (
             <Row>
@@ -44,7 +54,7 @@ export class ShapesApp extends React.Component<any, any> {
                     <h3>LW4 - Shape drawing with React+Typescript!</h3>
                 </Col>
                 <Col lg={8}>
-                    <CanvasArea/>
+                    <CanvasArea shapeParams={this.state}/>
                 </Col>
                 <Col lg={4}>
                     <form>
@@ -54,7 +64,7 @@ export class ShapesApp extends React.Component<any, any> {
                         <CircleControl shapeType={this.props.shapeType} handleShapeParams={this.handleFormParams}/>
                         <RectangleControl shapeType={this.props.shapeType} handleShapeParams={this.handleFormParams}/>
                         <TriangleControl shapeType={this.props.shapeType} handleShapeParams={this.handleFormParams}/>
-                        <ActionBar shapeParams={this.state}/>
+                        <ActionBar shapeParams={this.state} drawAction={this.drawShape}/>
                     </form>
                 </Col>
             </Row>

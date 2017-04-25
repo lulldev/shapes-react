@@ -3,11 +3,12 @@
 import * as React from "react";
 
 export class CanvasArea extends React.Component<any, any> {
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
     }
 
     public render () {
+        console.log(this.props);
         return (
             <div>
                 <label>Canvas output:</label>

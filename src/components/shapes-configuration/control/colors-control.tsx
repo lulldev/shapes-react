@@ -17,13 +17,13 @@ export class ColorsControl extends React.Component<any, any> {
         return (
             <div>
                 <_RB.FormGroup>
-                    <label>Select font color:</label>
-                    <_RB.FormControl id="shapeFontColor" type="color" placeholder="#ffffff"
+                    <label>Select border color:</label>
+                    <_RB.FormControl id="shapeBorderColor" type="color" value="#000000" placeholder="#ffffff"
                                     onChange={this.props.handleChangeColors}></_RB.FormControl>
                 </_RB.FormGroup>
                 <_RB.FormGroup>
                     <label>Select background color:</label>
-                    <_RB.FormControl id="shapeBgColor" type="color" placeholder="#ffffff"
+                    <_RB.FormControl id="shapeBgColor" type="color" value="#ffffff" placeholder="#ffffff"
                                     onChange={this.props.handleChangeColors}></_RB.FormControl>
                 </_RB.FormGroup>
             </div>

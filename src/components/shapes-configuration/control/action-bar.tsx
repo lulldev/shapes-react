@@ -16,8 +16,8 @@ export class ActionBar extends React.Component<any, any> {
         }
         return (
             <div>
-                <_RB.Button bsStyle="success">Draw shape!</_RB.Button>
-                <_RB.Button bsStyle="default">Reset form</_RB.Button>
+                <_RB.Button bsStyle="success"
+                            onClick={this.props.drawAction.bind(this)}>Draw shape!</_RB.Button>
             </div>
         );
     }

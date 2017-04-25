@@ -2,6 +2,7 @@
   "extends": ["tslint:recommended"],
   "rules": {
     "no-reference": false,
+    "no-console": false,
     "no-unused-variable": [true, {"ignore-pattern": "^_"}]
   }
 }
