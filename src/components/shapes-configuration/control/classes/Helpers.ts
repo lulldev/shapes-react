@@ -11,6 +11,12 @@ export function ValidateShapeByParams (params: any): boolean {
                 (params.hasOwnProperty("x_coordinate") && !isNaN(params.x_coordinate)) &&
                 (params.hasOwnProperty("y_coordinate") && !isNaN(params.y_coordinate));
             break;
+        case "rectangle":
+            valid = (params.hasOwnProperty("x_coordinate") && !isNaN(params.x_coordinate)) &&
+                (params.hasOwnProperty("y_coordinate") && !isNaN(params.y_coordinate)) &&
+                (params.hasOwnProperty("width") && !isNaN(params.width)) &&
+                (params.hasOwnProperty("height") && !isNaN(params.height));
+            break;
         default:
             valid = false;
             break;
