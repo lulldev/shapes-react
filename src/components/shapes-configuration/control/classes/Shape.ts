@@ -21,6 +21,6 @@ export abstract class Shape implements IShape {
 
     public abstract getArea(): number;
     public abstract getPerimeter(): number;
-    public abstract draw(): void;
+    public abstract draw(canvasContext: any): void;
     public abstract getType(): string;
 }

@@ -12,6 +12,7 @@ import {RectangleControl} from "./control/rectangle-control";
 import {TriangleControl} from "./control/triangle-control";
 import {ActionBar} from "./control/action-bar";
 
+import {ValidateShapeByParams} from "./control/classes/Helpers";
 
 export class ShapesApp extends React.Component<any, any> {
 
@@ -38,13 +39,19 @@ export class ShapesApp extends React.Component<any, any> {
         const state = {};
         state[event.target.id] = event.target.value;
         this.setState(state);
+        this.setState({
+            actionDraw: false,
+        });
     }
 
     public drawShape (event: any): void {
         event.preventDefault();
-        this.setState({
-            actionDraw: true,
-        });
+        console.log(ValidateShapeByParams(this.state));
+        if (ValidateShapeByParams(this.state)) {
+            this.setState({
+                actionDraw: true,
+            });
+        }
     }
 
     public render () {

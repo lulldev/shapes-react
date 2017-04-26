@@ -1,12 +1,9 @@
 export interface IShape {
-    setFillColor(fillColor: string): void;
-    getFillColor(): string;
-
-    setOutlineColor(outlineColor: string): void;
-    getOutlineColor(): string;
-
+    setBorderColor(borderColor: string): void;
+    getBorderColor(): string;
+    setBgColor(bgColor: string): void;
+    getBgColor(): string;
     getArea(): number;
     getPerimeter(): number;
-
-    draw(): void;
+    draw(canvasContext: any): void;
 }
