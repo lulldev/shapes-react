@@ -4,6 +4,7 @@ import * as React from "react";
 
 import {Circle} from "../control/classes/Circle";
 import {Rectangle} from "../control/classes/Rectangle";
+import {Triangle} from "../control/classes/Triangle";
 
 export class CanvasArea extends React.Component<any, any> {
 
@@ -43,10 +44,16 @@ export class CanvasArea extends React.Component<any, any> {
                     parseInt(shapeParams.x_coordinate, 10), parseInt(shapeParams.y_coordinate, 10),
                     parseInt(shapeParams.radius, 10));
                 break;
-            default:
+            case "rectangle":
                 shape = new Rectangle(shapeParams.shapeBorderColor, shapeParams.shapeBgColor,
                     parseInt(shapeParams.x_coordinate, 10), parseInt(shapeParams.y_coordinate, 10),
                     parseInt(shapeParams.width, 10), parseInt(shapeParams.height, 10));
+                break;
+            case "triangle":
+                shape = new Triangle(shapeParams.shapeBorderColor, shapeParams.shapeBgColor,
+                    parseInt(shapeParams.x1_coordinate, 10), parseInt(shapeParams.y1_coordinate, 10),
+                    parseInt(shapeParams.x2_coordinate, 10), parseInt(shapeParams.y2_coordinate, 10),
+                    parseInt(shapeParams.x3_coordinate, 10), parseInt(shapeParams.y3_coordinate, 10));
                 break;
         }
         return shape;
