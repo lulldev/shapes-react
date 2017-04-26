@@ -1,18 +1,17 @@
 import { Shape } from "./Shape";
 
 export class Triangle extends Shape {
-    
     constructor (borderColor: string, bgColor: string,
-                private x1: number, private y1: number,
-                private x2: number, private y2: number,
-                private x3: number, private y3: number) {
+                 private x1: number, private y1: number,
+                 private x2: number, private y2: number,
+                 private x3: number, private y3: number) {
         super(borderColor, bgColor);
     }
 
     public getType (): string {
         return "triangle";
     }
-    
+
     public setX1(x1: number): void {
         this.x1 = x1;
     }
@@ -64,11 +63,10 @@ export class Triangle extends Shape {
     public getArea (): number {
         return 0.5 * Math.abs((this.x1 - this.x3) * (this.y2 - this.y3) - (this.x2 - this.x3) * (this.y1 - this.y3));
     }
-    
     public getPerimeter (): number {
-        return Triangle.getDistanceBetweenPoints(this.x1, this.y1, this.x2, this.y2) +
-            Triangle.getDistanceBetweenPoints(this.x2, this.y2, this.x3, this.y3) +
-            Triangle.getDistanceBetweenPoints(this.x3, this.y3, this.x1, this.y1);
+        return this.getDistanceBetweenPoints(this.x1, this.y1, this.x2, this.y2) +
+            this.getDistanceBetweenPoints(this.x2, this.y2, this.x3, this.y3) +
+            this.getDistanceBetweenPoints(this.x3, this.y3, this.x1, this.y1);
     }
 
     public draw (canvasContext: any): void {
@@ -86,7 +84,7 @@ export class Triangle extends Shape {
         context.fill();
     }
 
-    private static getDistanceBetweenPoints(x1: number, y1: number, x2: number, y2: number): number {
+    private getDistanceBetweenPoints(x1: number, y1: number, x2: number, y2: number): number {
         return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
     }
 }

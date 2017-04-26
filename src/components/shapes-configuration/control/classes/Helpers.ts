@@ -1,5 +1,4 @@
 export function ValidateShapeByParams (params: any): boolean {
-    console.log(params);
     if (!params || !params.hasOwnProperty("shapeType")) {
         return false;
     }

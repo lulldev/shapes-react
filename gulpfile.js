@@ -47,8 +47,9 @@ gulp.task("cspell", function () {
 
 gulp.task("tslint", function () {
     return gulp.src(config.scriptSource).pipe(tslint({
-        formatter: "stylish"
-    })).pipe(tslint.report({emitError: false}))
+        configuration: "tslint.json",
+        formatter: "stylish",
+    })).pipe(tslint.report());
 });
 
 gulp.task('scripts', function (cb) {

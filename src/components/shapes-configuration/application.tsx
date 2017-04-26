@@ -46,7 +46,6 @@ export class ShapesApp extends React.Component<any, any> {
 
     public drawShape (event: any): void {
         event.preventDefault();
-        console.log(ValidateShapeByParams(this.state));
         if (ValidateShapeByParams(this.state)) {
             this.setState({
                 actionDraw: true,

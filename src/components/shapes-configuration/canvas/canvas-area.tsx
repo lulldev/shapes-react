@@ -55,6 +55,8 @@ export class CanvasArea extends React.Component<any, any> {
                     parseInt(shapeParams.x2_coordinate, 10), parseInt(shapeParams.y2_coordinate, 10),
                     parseInt(shapeParams.x3_coordinate, 10), parseInt(shapeParams.y3_coordinate, 10));
                 break;
+            default:
+                break;
         }
         return shape;
     }
